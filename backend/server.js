@@ -16,7 +16,12 @@ connectCloudinary();
 
 // middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+  origin: "hhttps://prescripto-full-stack-3.onrender.com", // frontend URL
+  credentials: true,               // if using cookies/auth
+}
+));
 
 // api endpoints
 app.use("/api/user", userRouter);
