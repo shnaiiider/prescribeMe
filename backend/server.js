@@ -8,36 +8,27 @@ import doctorRouter from "./routes/doctorRoute.js";
 import adminRouter from "./routes/adminRoute.js";
 import cloudinaryRoute from "./routes/cloudinaryRoute.js";
 
-// app config
 const app = express();
 const port = process.env.PORT || 4000;
 
-// connect DB + Cloudinary
+// connect db
 connectDB();
 connectCloudinary();
 
-// allowed origins (dev + prod)
+// ✅ allow deployed frontend + local dev
 const allowedOrigins = [
-  "http://localhost:5173", // local dev
-  "https://prescripto-full-stack-3.onrender.com" // deployed frontend
+  "http://localhost:5173",
+  "https://prescripto-full-stack-3.onrender.com"
 ];
 
-// middlewares
-app.use(express.json());
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 
-// api endpoints
+app.use(express.json());
+
+// routes
 app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/doctor", doctorRouter);
