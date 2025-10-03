@@ -14,6 +14,7 @@ const port = process.env.PORT || 4000;
 // connect db
 connectDB();
 connectCloudinary();
+app.use(cors());   
 
 // ✅ allow deployed frontend + local dev
 const allowedOrigins = [
