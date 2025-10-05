@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const AdminContext = createContext();
 
 const AdminContextProvider = (props) => {
-  const backendUrl = "https://prescribeme-backend.onrender"
+  const backendUrl = "https://prescribeme-backend-ojwy.onrender.com"
 
   const [aToken, setAToken] = useState(
     localStorage.getItem("aToken") ? localStorage.getItem("aToken") : ""
