@@ -1,4 +1,4 @@
-🩺 PrescribeMe--- Doctor Appointment Booking System
+                                                              🩺 PRESCRIBEME 
 
 A full-stack doctor appointment booking application with role-based access control.
 The platform supports three roles — User, Doctor, and Admin — enabling seamless appointment management, authentication, and administration.
